@@ -3,6 +3,7 @@ import { CORE_CONCEPTS } from "./data.js";
 import { App2 } from "./nafadyTest.jsx";
 import Header from "./components/Header/Header.jsx";
 import Button from "./components/Buttons/Button.jsx"
+import Example from "./components/content-section/contentSection.jsx"
 
 
 
@@ -71,9 +72,7 @@ function App()
 
               
         </section>
-        
-       
-       
+       <Example></Example>
       </main>
     </div>
   );
