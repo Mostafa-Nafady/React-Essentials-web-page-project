@@ -3,7 +3,7 @@ import { CORE_CONCEPTS } from "./data.js";
 import { App2 } from "./nafadyTest.jsx";
 import Header from "./components/Header/Header.jsx";
 import Button from "./components/Buttons/Button.jsx"
-import Example from "./components/content-section/contentSection.jsx"
+import { EXAMPLES } from "./data.js"
 
 
 
@@ -23,23 +23,27 @@ function CoreConcept({image,title,description,children})
   );
  
 }
+
 /* App component */
+                     
+
 function App()
 {
   /* use state in the begining of the component to activate state in the component  */
   /* selected tab is the dynamic content which we want to change*/
-  const [selsctedTab, updateUi] = useState("please select a tab ! ");
-  // const x = "hiiiiiiiii"
-  
+
+  const [selectedTab, updateUi] = useState("Components");
+ 
   /* this function to handel the action while the button is clicked */
-  
+
   function selectHandler( selectedButton)
   { 
-    console.log("hi iiiii", selectedButton)
+    console.log("selectedTab",selectedTab)
+    console.log("selectedButton",selectedButton)
     
-    updateUi(selectedButton)    
-    
-    };
+    updateUi(selectedButton); 
+    console.log(EXAMPLES[selectedTab]);
+  }
 
   return (
     <div>
@@ -66,20 +70,32 @@ function App()
             <menu>
               <Button onSelect={()=>selectHandler("Components")}>components</Button>
               <Button  onSelect={()=>selectHandler("JSX")}>JSX</Button>
-              <Button  onSelect={()=>selectHandler("Props")}>Props</Button>
+              <Button  onSelect={()=>selectHandler("props")}>Props</Button>
               <Button  onSelect={()=>selectHandler("State")}>state</Button>
             </menu>
 
            {/* /* dynamic content */ }
-            {selsctedTab} 
+            {/* {selectedTab}  */}
 
+            {/* {EXAMPLES.selectedTab} */}
+
+ 
+            {/* real dynamic conten to show */}
+
+            <div id="card"> 
+              <h3>{EXAMPLES[selectedTab].title}</h3>
+              <p>{EXAMPLES[selectedTab].description}</p>
+            <section>{EXAMPLES[selectedTab].code  }</section>
+           </div>
+
+            
             
 
           </section>
            
          <App2/>
         
-          {/* {x} */}
+         
           
               
         </section>
