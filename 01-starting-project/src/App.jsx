@@ -28,7 +28,7 @@ function App()
 {
   const [selsctedTab, updateUi] = useState("please select a tab ! ");
   const x="hiiiiiiiii"
-  
+  /* this function to handel the action while the button is clicked */
   function selectHandler( selectedButton)
   { 
     console.log("hi iiiii", selectedButton)
