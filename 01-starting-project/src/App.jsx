@@ -72,7 +72,7 @@ function App()
 
               
         </section>
-       <Example></Example>
+       
       </main>
     </div>
   );
