@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState} from 'react' // to activate state Hooks inside this file
 import { CORE_CONCEPTS } from "./data.js";
 import { App2 } from "./nafadyTest.jsx";
 import Header from "./components/Header/Header.jsx";
@@ -23,12 +23,16 @@ function CoreConcept({image,title,description,children})
   );
  
 }
-
+/* App component */
 function App()
 {
+  /* use state in the begining of the component to activate state in the component  */
+  /* selected tab is the dynamic content which we want to change*/
   const [selsctedTab, updateUi] = useState("please select a tab ! ");
-  const x="hiiiiiiiii"
+  // const x = "hiiiiiiiii"
+  
   /* this function to handel the action while the button is clicked */
+  
   function selectHandler( selectedButton)
   { 
     console.log("hi iiiii", selectedButton)
@@ -65,14 +69,17 @@ function App()
               <Button  onSelect={()=>selectHandler("Props")}>Props</Button>
               <Button  onSelect={()=>selectHandler("State")}>state</Button>
             </menu>
-           
-            {selsctedTab}
+
+           {/* /* dynamic content */ }
+            {selsctedTab} 
+
+            
 
           </section>
            
          <App2/>
         
-          {x}
+          {/* {x} */}
           
               
         </section>
