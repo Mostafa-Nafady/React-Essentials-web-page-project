@@ -1,4 +1,5 @@
 
+import img from "../../assets/react-core-concepts.png"
 const reactDescription = ["Fundamentals", "core", "cursial"];
 function getRandomInt(max)
 {
@@ -9,7 +10,7 @@ function getRandomInt(max)
 export default function Header()
 {
   const changeWords = reactDescription[getRandomInt(2)];
-  const img = "src/assets/react-core-concepts.png";
+  // const img = "src/assets/react-core-concepts.png"; // import image instead
   return (
      <header>
         <img src={img} alt="Stylized atom" />

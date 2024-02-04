@@ -18,6 +18,7 @@ function CoreConcept({image,title,description,children})
     <img src={image}/>
       <h3>{title }</h3>
       <p>{description}</p>
+    
 </li>
   );
  
@@ -26,6 +27,7 @@ function CoreConcept({image,title,description,children})
 function App()
 {
   const [selsctedTab, updateUi] = useState("please select a tab ! ");
+  const x="hiiiiiiiii"
   
   function selectHandler( selectedButton)
   { 
@@ -46,7 +48,7 @@ function App()
           <h2>core concept</h2>
           <ul >
             <CoreConcept { ...CORE_CONCEPTS[0] }
-            />
+            ></CoreConcept>
             <CoreConcept  {...CORE_CONCEPTS[1]}
             />
             <CoreConcept  {...CORE_CONCEPTS[2]}
@@ -63,13 +65,15 @@ function App()
               <Button  onSelect={()=>selectHandler("Props")}>Props</Button>
               <Button  onSelect={()=>selectHandler("State")}>state</Button>
             </menu>
-            
+           
             {selsctedTab}
 
           </section>
            
          <App2/>
-
+        
+          {x}
+          
               
         </section>
        
