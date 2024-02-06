@@ -1,4 +1,4 @@
-export default function Button({children , onSelect})
+export default function Button({children , onSelect,applyActiveStyle}) // isSelected to acivate the class active while the button is clicked
 {
     // function clickHandler()
     // {
@@ -10,7 +10,7 @@ export default function Button({children , onSelect})
         // console.log(children)
 
     return (
-        <li><button onClick={onSelect}>{children }</button></li>
+        <li><button className={applyActiveStyle} onClick={onSelect}>{children }</button></li>
 
 
     );

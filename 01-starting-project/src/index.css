@@ -2,6 +2,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+    padding: 0;
 }
 
 html {
@@ -72,11 +74,19 @@ main h2 {
 }
 
 #examples {
-  margin: 3rem auto;
+  margin: 5rem auto;
 }
 
 #examples h2 {
   text-align: left;
+}
+menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+menu li{
+  width: 5rem;
 }
 
 #examples menu {
@@ -106,6 +116,15 @@ main h2 {
 
  .active{
   display: block;
+
+}
+
+p.active{
+  background-color: rgb(243, 177, 177);
+  border-radius: .5rem;
+  padding: 1.5rem;
+  color: #7925d3;
+  font-weight: bold;
 }
  .idle {
   display: none;
@@ -114,6 +133,10 @@ main h2 {
   background-color: #7925d3;
   color: #ebe7ef;
 }
+#examples menu button:hover {
+  background-color:#ebe7ef;
+  color:#7925d3;
+}
 
 #tab-content {
   padding: 1rem;
@@ -121,17 +144,92 @@ main h2 {
   background-color: #2f1d43;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
-
-#tab-content h3 {
-  margin: 0;
-}
-
 #tab-content code {
   font-size: 1rem;
 }
 
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  margin: 3rem 0;
+}
 
-#card h3{
+#alert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  background-color: rgb(126, 91, 91);
+  border-radius: 1rem;
+  padding: .5rem;
+  margin-top: 10rem;
+  
+}
+.card h3{
+  text-align: center;
+ 
   color: yellow;
 }
+#alert p{
+  /* text-align: center; */
+  color:yellowgreen;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#alert h3{
+  margin-top: 20rem;
+}
+
+#alert button.active {
+  background-color: red;
+  color: #ebe7ef;
+}
+#alert .yellow{
+  align-items: center;
+  background-color: yellow;
+}
+.sasa{
+  height:100%
+}
+button.yellow{
+ 
+  background-color:yellow;
+  height: 12%;
+  width: 100%;
+  border-radius: .5rem;
+  padding: 2rem ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+}
+button.active.yellow{
+  margin-top: 2rem;
+}
+div#alert p{
+  margin-top: 0rem;
+ 
+  padding: 15rem;
+  /* text-align: center; */
+}
+#alert button{
+  margin-bottom: 10rem;
+}
+#core-concepts{
+margin: 2rem;
+}
+#card h3{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: aqua;
+}
+#card p{
+  font-size: 1.5rem;
+}
+ 

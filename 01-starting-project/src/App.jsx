@@ -32,8 +32,10 @@ function App()
   /* use state in the begining of the component to activate state in the component  */
   /* selected tab is the dynamic content which we want to change*/
 
-  const [selectedTab, updateUi] = useState("Components");
- 
+  const [selectedTab, updateUi] = useState();
+  const [clickWarning, showBox] = useState(0);
+  const [activeStyle,updateStyle]= useState('')
+//  let [activeStyle1,activeStyle2,activeStyl3,activeStyle4]=style
   /* this function to handel the action while the button is clicked */
 
   function selectHandler( selectedButton)
@@ -42,9 +44,38 @@ function App()
     console.log("selectedButton",selectedButton)
     
     updateUi(selectedButton); 
+    // updateStyle("active")
     console.log(EXAMPLES[selectedTab]);
   }
+  let contentToShow = <p> please select a topic</p>;
+  if (selectedTab) {
+    contentToShow =  <div id="card" className='active' >
+                <h3>{EXAMPLES[selectedTab].title}</h3>
+                <p className='active'>{EXAMPLES[selectedTab].description}</p>
+                <code>{EXAMPLES[selectedTab].code  }</code>
+             </div>
+  }
+ 
+    /* maximillian task  */
+function handelDeleteClick(x){
+    showBox (x);
+}
 
+  let displayOn = (
+    <div className='sasa'> <button className='yellow' onClick={() => handelDeleteClick(1)}>Delete</button>
+    </div>);
+  
+  if (clickWarning)
+  {
+   displayOn =
+    (
+        <div data-testid="alert" id="alert" className='card'>
+          <h3>Are you sure?</h3>
+          <p>These changes can't be reverted!</p>
+        <button className="active yellow" onClick={() =>  handelDeleteClick(0) }>Proceed</button>
+    </div>)
+}
+    
   return (
     <div>
       <Header />
@@ -68,10 +99,10 @@ function App()
           <section id="examples">
             <h2>Examples</h2>
             <menu>
-              <Button onSelect={()=>selectHandler("Components")}>components</Button>
-              <Button  onSelect={()=>selectHandler("JSX")}>JSX</Button>
-              <Button  onSelect={()=>selectHandler("props")}>Props</Button>
-              <Button  onSelect={()=>selectHandler("State")}>state</Button>
+              <Button  applyActiveStyle={ selectedTab  === "Components" ? 'active': 'inactive' } onSelect={()=>selectHandler("Components")}>components</Button>
+              <Button  applyActiveStyle={ selectedTab  === "JSX" ? 'active':'inactive' } onSelect={()=>selectHandler("JSX")}>JSX</Button>
+              <Button  applyActiveStyle={ selectedTab  === "props" ? 'active':'inactive' } onSelect={()=>selectHandler("props")}>Props</Button>
+              <Button  applyActiveStyle={ selectedTab  === "State" ? 'active':'inactive' } onSelect={()=>selectHandler("State")}>state</Button>
             </menu>
 
            {/* /* dynamic content */ }
@@ -82,13 +113,19 @@ function App()
  
             {/* real dynamic conten to show */}
 
-            <div id="card"> 
-              <h3>{EXAMPLES[selectedTab].title}</h3>
-              <p>{EXAMPLES[selectedTab].description}</p>
-            <section>{EXAMPLES[selectedTab].code  }</section>
-           </div>
-
             
+            {/* {selectedTab || ()}
+                
+            {!selectedTab || (
+             ) }
+             */}
+            {contentToShow}
+            <div className='card '>
+              <h3 > just to try some thing </h3>
+              
+            </div>
+
+             {displayOn}
             
 
           </section>
