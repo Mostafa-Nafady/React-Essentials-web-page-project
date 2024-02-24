@@ -1,3 +1,4 @@
+import TestComponent from "./component/TestComponent/TestComponent";
 function App() {
   return (
     <div>
@@ -12,6 +13,8 @@ function App() {
       <main>
         <h2>Time to get started!</h2>
       </main>
+      {/* Pascalcasing  for write the component name convention*/}
+      <TestComponent />
     </div>
   );
 }
