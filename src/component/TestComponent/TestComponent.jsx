@@ -1,8 +1,12 @@
 import react from "react";
-function TestComponent({ onSelect, children }) {
+import "./test.css";
+function TestComponent({ onSelect, children, isSelected }) {
+  console.log(isSelected);
   return (
     <div>
-      <button onClick={onSelect}> {children}</button>
+      <button className={isSelected ? "active" : null} onClick={onSelect}>
+        {children}
+      </button>
     </div>
   );
 }

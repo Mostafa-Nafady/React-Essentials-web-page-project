@@ -7,3 +7,12 @@
 .buttonStyle {
   text-align: center;
 }
+.active {
+  background-color: brown;
+  color: white;
+}
+.sasa {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}

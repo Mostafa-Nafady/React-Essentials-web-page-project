@@ -1,6 +1,7 @@
 import TestComponent from "./component/TestComponent/TestComponent";
 import { useState } from "react";
 import "./component/TestComponent/test.css";
+import { CORE_CONCEPTS } from "./data";
 
 function App() {
   let [showDynamic, ShowDynamicHandel] = useState("please select u");
@@ -31,14 +32,25 @@ function App() {
       {/* Pascalcasing  for write the component name convention*/}
       <h1 className="show">THis is the dynamic content area</h1>
       <div className="buttonStyle">
-        <TestComponent onSelect={() => handelSelectedButton("0")}>
+        <TestComponent
+          isSelected={showDynamic === "you have click a button 1"}
+          onSelect={() => handelSelectedButton("0")}
+        >
           button 1
         </TestComponent>
-        <TestComponent onSelect={() => handelSelectedButton("1")}>
+        <TestComponent
+          isSelected={showDynamic === "you have click a button 2"}
+          onSelect={() => handelSelectedButton("1")}
+        >
           button2
         </TestComponent>
       </div>
       <div className="show">{showDynamic}</div>
+      <div className="sasa">
+        {CORE_CONCEPTS.map((item, idx) => (
+          <TestComponent> {item.title}</TestComponent>
+        ))}
+      </div>
     </div>
   );
 }
