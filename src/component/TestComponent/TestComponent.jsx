@@ -1,6 +1,9 @@
 import react from "react";
-import Test from "./test.css";
-function TestComponent() {
-  return <div className="show">Hello world</div>;
+function TestComponent({ onSelect, children }) {
+  return (
+    <div>
+      <button onClick={onSelect}> {children}</button>
+    </div>
+  );
 }
 export default TestComponent;
