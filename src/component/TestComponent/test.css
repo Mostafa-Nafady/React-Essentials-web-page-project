@@ -1,0 +1,18 @@
+.show {
+  font-size: 50px;
+  text-align: center;
+  color: red;
+  font-weight: 600;
+}
+.buttonStyle {
+  text-align: center;
+}
+.active {
+  background-color: brown;
+  color: white;
+}
+.sasa {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
