@@ -20,7 +20,7 @@ export default function DeleteConfirmation({
             Yes
           </button>
         </div>
-        <InProgressBar modalISOpen={modalISOpen} />
+        <InProgressBar modalISOpen={modalISOpen} onConfirm={onConfirm} />
       </div>
     </div>
   );
