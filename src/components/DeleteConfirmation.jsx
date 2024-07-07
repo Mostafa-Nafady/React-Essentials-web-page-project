@@ -1,45 +1,12 @@
 import { useState, useEffect } from "react";
-const TIMER = 3000;
+import InProgressBar from "./InProgressBar";
 export default function DeleteConfirmation({
   onConfirm,
   onCancel,
   modalISOpen,
 }) {
-  const [timeInterval, setTimeInterval] = useState(TIMER);
   console.log("DeleteConfirmation  outSide useEffect");
 
-  useEffect(() => {
-    let interval;
-
-    if (modalISOpen) {
-      console.log("DeleteConfirmation");
-
-      interval = setInterval(() => {
-        setTimeInterval((prevTimeInterval) => {
-          // console.log("prevTimeInterval", prevTimeInterval);
-          return prevTimeInterval - 10;
-        });
-      }, 10);
-    }
-    return () => {
-      clearInterval(interval);
-    };
-  }, [modalISOpen]);
-  useEffect(() => {
-    let timer_X;
-    if (modalISOpen) {
-      setTimeInterval(() => {
-        console.log("timeInterval", TIMER);
-        return TIMER;
-      });
-      timer_X = setTimeout(() => {
-        onConfirm();
-      }, 3000);
-    }
-    return () => {
-      clearTimeout(timer_X);
-    };
-  }, [onConfirm, modalISOpen]);
   return (
     <div id="delete-confirmation">
       <h2>Are you sure?</h2>
@@ -53,7 +20,7 @@ export default function DeleteConfirmation({
             Yes
           </button>
         </div>
-        <progress value={timeInterval} max={TIMER} />
+        <InProgressBar modalISOpen={modalISOpen} />
       </div>
     </div>
   );
