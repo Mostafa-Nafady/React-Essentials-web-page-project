@@ -20,7 +20,7 @@ function App() {
   }, []);
   const handleStopRemovePlace = useCallback(() => {
     modal.current.close();
-    // setModalISOpen(false);
+    setModalISOpen(false);
   }, []);
   const handleSelectPlace = useCallback((id) => {
     setPickedPlaces((prevPickedPlaces) => {

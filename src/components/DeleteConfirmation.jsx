@@ -38,13 +38,15 @@ export default function DeleteConfirmation({
     <div id="delete-confirmation">
       <h2>Are you sure?</h2>
       <p>Do you really want to remove this place?</p>
-      <div id="confirmation-actions" className="flex flex-col">
-        <button onClick={onCancel} className="button-text">
-          No
-        </button>
-        <button onClick={onConfirm} className="button">
-          Yes
-        </button>
+      <div className="flex flex-col justify-center items-center gap-1">
+        <div id="confirmation-actions">
+          <button onClick={onCancel} className="button-text">
+            No
+          </button>
+          <button onClick={onConfirm} className="button">
+            Yes
+          </button>
+        </div>
         <progress value={timeInterval} max={TIMER} />
       </div>
     </div>
