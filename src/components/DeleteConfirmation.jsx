@@ -13,9 +13,12 @@ export default function DeleteConfirmation({
 
     if (modalISOpen) {
       console.log("DeleteConfirmation");
-      console.log("timeInterval", timeInterval);
+
       interval = setInterval(() => {
-        setTimeInterval((prevTimeInterval) => prevTimeInterval - 10);
+        setTimeInterval((prevTimeInterval) => {
+          // console.log("prevTimeInterval", prevTimeInterval);
+          return prevTimeInterval - 10;
+        });
       }, 10);
     }
     return () => {
@@ -25,7 +28,10 @@ export default function DeleteConfirmation({
   useEffect(() => {
     let timer_X;
     if (modalISOpen) {
-      setTimeInterval(TIMER);
+      setTimeInterval(() => {
+        console.log("timeInterval", TIMER);
+        return TIMER;
+      });
       timer_X = setTimeout(() => {
         onConfirm();
       }, 3000);
