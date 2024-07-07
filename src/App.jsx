@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import Places from "./components/Places.jsx";
 import { AVAILABLE_PLACES } from "./data.js";
@@ -10,17 +10,19 @@ function App() {
   const modal = useRef();
   const selectedPlace = useRef();
   const [pickedPlaces, setPickedPlaces] = useState([]);
+  const [modalISOpen, setModalISOpen] = useState(false);
 
-  function handleStartRemovePlace(id) {
+  // useEffect(() => {
+  const handleStartRemovePlace = useCallback((id) => {
     modal.current.open();
+    setModalISOpen(true);
     selectedPlace.current = id;
-  }
-
-  function handleStopRemovePlace() {
+  }, []);
+  const handleStopRemovePlace = useCallback(() => {
     modal.current.close();
-  }
-
-  function handleSelectPlace(id) {
+    // setModalISOpen(false);
+  }, []);
+  const handleSelectPlace = useCallback((id) => {
     setPickedPlaces((prevPickedPlaces) => {
       if (prevPickedPlaces.some((place) => place.id === id)) {
         return prevPickedPlaces;
@@ -28,23 +30,33 @@ function App() {
       const place = AVAILABLE_PLACES.find((place) => place.id === id);
       return [place, ...prevPickedPlaces];
     });
-  }
+  }, []);
 
-  function handleRemovePlace() {
+  const handleRemovePlace = useCallback(() => {
     setPickedPlaces((prevPickedPlaces) =>
       prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
     );
     modal.current.close();
-  }
+    setModalISOpen(false);
+    const storedId = JSON.parse(localStorage.getItem(`selectedPlaces`)) || [];
+    localStorage.getItem(
+      `selectedPlaces`,
+      JSON.stringify(storedId.filter((id) => id !== selectedPlace.current))
+    );
+  }, []);
+  // }, []);
 
   return (
     <>
+      {/* {modalISOpen && ( */}
       <Modal ref={modal}>
         <DeleteConfirmation
           onCancel={handleStopRemovePlace}
           onConfirm={handleRemovePlace}
+          modalISOpen={modalISOpen}
         />
       </Modal>
+      {/* )} */}
 
       <header>
         <img src={logoImg} alt="Stylized globe" />
