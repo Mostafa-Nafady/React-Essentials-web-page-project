@@ -41,5 +41,10 @@ export default function InProgressBar({ modalISOpen, onConfirm }) {
     return () => {};
   }, [modalISOpen]);
 
-  return <progress value={timeInterval} max={TIMER} />;
+  return (
+    <>
+      <progress value={timeInterval} max={TIMER} />
+      <div>{timeInterval}</div>
+    </>
+  );
 }
